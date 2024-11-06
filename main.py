@@ -11,12 +11,10 @@ def resize_images(input_folder, output_folder, scale=0.1):
 
     # Loop through files in input folder
     for filename in os.listdir(input_folder):
-        print(filename)
         if filename.lower().endswith(supported_formats):
             input_path = os.path.join(input_folder, filename)
             
             with Image.open(input_path) as img:
-           
                 new_size = (int(img.width * scale), int(img.height * scale))
                 resized_img = img.resize(new_size, Image.LANCZOS)
                 output_path = os.path.join(output_folder, filename)
